@@ -9,6 +9,6 @@ Lectures notes are prepared in [Colaboratory](https://colab.research.google.com/
 
 This website was created for your convenience. Feel free to use Jupyter notebooks though:
 
-* Introduction: [Colaboratory](https://colab.research.google.com/drive/1qJj4jZMpBpfCkHc0bavFGezx8bhJlVcx) or [GitHub](https://github.com/TomaszGolan/introduction_to_machine_learning/docs/notebooks/introduction_to_machine_learning_00_intro.ipynb)
+* Introduction: [Colaboratory](https://colab.research.google.com/drive/1qJj4jZMpBpfCkHc0bavFGezx8bhJlVcx) or [GitHub](https://github.com/TomaszGolan/introduction_to_machine_learning/blob/master/docs/notebooks/introduction_to_machine_learning_00_intro.ipynb)
 
-* k-Nearest Neighbors: [Colaboratory](https://colab.research.google.com/drive/1My8UggN12Opt_gscK3tl4VLhZkHiQSyX) or [GitHub](https://github.com/TomaszGolan/introduction_to_machine_learning/docs/notebooks/introduction_to_machine_learning_01_knn.ipynb)
+* k-Nearest Neighbors: [Colaboratory](https://colab.research.google.com/drive/1My8UggN12Opt_gscK3tl4VLhZkHiQSyX) or [GitHub](https://github.com/TomaszGolan/introduction_to_machine_learning/blob/master/docs/notebooks/introduction_to_machine_learning_01_knn.ipynb)
