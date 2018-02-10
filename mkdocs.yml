@@ -1,0 +1,41 @@
+# Website structure
+pages:
+    - Home: index.md
+    - Introduction: markdown/introduction_to_machine_learning_00_intro/introduction_to_machine_learning_00_intro.md
+    - k-Nearest Neighbors: markdown/introduction_to_machine_learning_01_knn/introduction_to_machine_learning_01_knn.md
+
+# Project information
+site_name: Introduction to Machine Learning
+site_description: 'University of Wroclaw, Department of Physics and Astronomy'
+site_author: 'Tomasz Golan'
+site_url: 'https://tomaszgolan.github.io/introduction_to_machine_learning/'
+
+# Repository
+repo_name: 'IML @ GitHub'
+repo_url: 'https://github.com/TomaszGolan/introduction_to_machine_learning/'
+
+# Theme
+# Theme
+theme:
+  name: 'material'
+  palette:
+    primary: 'blue grey'
+    accent: 'blue'
+
+theme_dir: extras
+
+#  Options
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/TomaszGolan/introduction_to_machine_learning'
+
+# Extensions
+markdown_extensions:
+    - pymdownx.arithmatex
+    - admonition
+    - codehilite(guess_lang=false)
+    - toc(permalink=true)
+
+extra_javascript:
+    - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
