@@ -139,13 +139,17 @@ plot.plot(*X1.T, 'ro', *X2.T, 'bs', *new_point.T, 'g^');
 
 * The nearest neigbor classifier *compares* a test sample with all training samples to predict a label (class).
 * How to compare two samples?
-  * L1 distance: $d(\vec x_1, \vec x_2) = \sum\limits_i |x_1^i - x_2^i|$
-  * L2 distance: $d(\vec x_1, \vec x_2) = \sqrt{\sum\limits_i (x_1^i - x_2^i)^2}$
-    * note: in practice square root is ignored (becasue is monotonic function)
-    * L2 is less forgiving than L1 - prefers many small disagreements than one big one
-  * cosine distance (cosine similarity): $d(\vec x_1, \vec x_2) = \frac{x_1 \cdot x_1}{||\vec x_1|| \cdot ||\vec x_2||}$
-  * Chebyshev distance: $d(\vec x_1, \vec x_2) = max_i(|x_1^i - x_2^i|)$
-  * and many others
+
+    * L1 distance: $d(\vec x_1, \vec x_2) = \sum\limits_i |x_1^i - x_2^i|$
+    * L2 distance: $d(\vec x_1, \vec x_2) = \sqrt{\sum\limits_i (x_1^i - x_2^i)^2}$
+    
+      * note: in practice square root is ignored (becasue is monotonic function)
+      * L2 is less forgiving than L1 - prefers many small disagreements than one big one
+  
+    * cosine distance (cosine similarity): $d(\vec x_1, \vec x_2) = \frac{x_1 \cdot x_1}{||\vec x_1|| \cdot ||\vec x_2||}$
+    * Chebyshev distance: $d(\vec x_1, \vec x_2) = max_i(|x_1^i - x_2^i|)$
+    * and many others
+    
 * The closest one determines the test sample label
 
 ### Implementation
@@ -411,10 +415,12 @@ l2.plot()
 ### Multiclass classification
 
 * Training samples from 4 squares:
-  * [0, 1] x [0, 1]
-  * [0, 1] x [1, 2]
-  * [1, 2] x [0, 1]
-  * [1, 2] x [1, 2]
+
+    * [0, 1] x [0, 1]
+    * [0, 1] x [1, 2]
+    * [1, 2] x [0, 1]
+    * [1, 2] x [1, 2]
+    
 * We expect 4 squares created by test samples grid
 * How does it depend on the size of training samples?
 
@@ -463,7 +469,7 @@ for n in (5, 10, 50, 100):
 ![png](output_30_3.png)
 
 
- <font color=red size=5>Message 01: size matters!</font>
+<font color=red size=5>Message 01: size matters!</font>
 
 ### Noise
 
@@ -499,12 +505,13 @@ c4.plot()
 ### Overfitting
 
 * The above is an example of overfitting
-  * perfectly describe training data
-  * lose the generalization ability
+
+    * perfectly describe training data
+    * lose the generalization ability
 
 * In general you want to extract all common features from training samples, but neglect characteristic features of single sample
   
- <font color=red size=5>Message 02: avoid overfitting!</font>
+<font color=red size=5>Message 02: avoid overfitting!</font>
 
 ### Accuracy
 
@@ -539,12 +546,12 @@ print(accuracy)
 * Please note, that this is a toy model - in the case of real problems there is no way to determine true labels (otherwise there is no point to use ML methods...)
 * To measure accuracy of the model one usually splits data into:
 
-  * training samples (usually about 80%)
-  * test samples (usually about 20%)
+    * training samples (usually about 80%)
+    * test samples (usually about 20%)
   
 * After the model is trained on training samples, the accuracy is measured on test samples
 
- <font color=red size=5>Message 03: keep some data for testing!</font>
+<font color=red size=5>Message 03: keep some data for testing!</font>
 
 ## k-Nearest Neighbors
 
@@ -692,8 +699,10 @@ for k in (1, 5, 10, 50):
 * ML model may have some hyperparameters - parameters set before training
 * Please note, ML algorithm may have also parameters which are set during training
 * In the case of kNN there are two hyperparameters:
-  * number of nearest neihgbors (*k*)
-  * the definition of distance
+
+    * number of nearest neihgbors (*k*)
+    * the definition of distance
+
 * The choice of hyperparameters values highly depends on a problem
 * The wrong choice of hyperparameters may lead to underfitting or overfitting
 
@@ -753,17 +762,20 @@ for n in (1, 2, 10):
 * For *n = 2* we have appropriate capacity (as we actually generated data form $x^2$ function)
 * For *n = 10* we overfit the data - training samples are described perfectly, but we clearly lost the generalization ability
 
- <font color=red size=5>Message 04: right choice of hyperparameters is crucial!</font>
+<font color=red size=5>Message 04: right choice of hyperparameters is crucial!</font>
 
 ### Validation dataset
 
 * One splits data into training and test samples
-  * training samples are used to optimize model parameters
-  * test samples are used to measure accuracy
-  * there is no rule of thumb on how to split dataset
+
+    * training samples are used to optimize model parameters
+    * test samples are used to measure accuracy
+    * there is no rule of thumb on how to split dataset
+
 * If a model has some hyperparameters the part of training set is used for valitation samples:
-  * training samples - tuning model parameters
-  * validation samples - tuning hyperparameters
+
+    * training samples - tuning model parameters
+    * validation samples - tuning hyperparameters
   
 ```
                   +---------------------+      +------------------------+
@@ -783,14 +795,16 @@ for n in (1, 2, 10):
 
 * The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other 2; the latter are NOT linearly separable from each other. [src](https://archive.ics.uci.edu/ml/datasets/iris)
 * Attribute Information:
-  * sepal length in cm
-  * sepal width in cm
-  * petal length in cm
-  * petal width in cm
-  * class: 
-    * Iris Setosa
-    * Iris Versicolour
-    * Iris Virginica
+
+    * sepal length in cm
+    * sepal width in cm
+    * petal length in cm
+    * petal width in cm
+    * class: 
+
+        * Iris Setosa
+        * Iris Versicolour
+        * Iris Virginica
 
 ### Load dataset
 
@@ -1384,7 +1398,7 @@ print("Accuracy:\n\tboth in cm: {}\n\tpetal in mm: {}".format(cm, mm))
 * It is kind of obvious here - petal information will barely contribute to the distance
 * However, it is not always obvious if some features are not suppressed by the way data is normalized
 
- <font color=red size=5>Message 05: be aware of data normalization!</font>
+<font color=red size=5>Message 05: be aware of data normalization!</font>
 
 ## MNIST
 
@@ -1599,14 +1613,14 @@ for i, (true, predict) in enumerate(zip(label_test, prediction)):
 ## Regression with kNN
 
 * It is also possible to do regression using k-Nearest Neighbors
-  * find *k* nearest neighbors from training samples
-  * calculate the predicted value using inverse distance weighting method
+
+    * find *k* nearest neighbors from training samples
+    * calculate the predicted value using inverse distance weighting method
   
-  $$y_{pred}(\vec x) = \frac{\sum\limits_i w_i(\vec x) y_{train, i}}{\sum\limits_i w_i(\vec x_i)}$$
+    $$y_{pred}(\vec x) = \frac{\sum\limits_i w_i(\vec x) y_{train, i}}{\sum\limits_i w_i(\vec x_i)}$$
   
-  * where $w_i(\vec x) = \frac{1}{d(\vec x, \vec x_{train, i})}$
-  
-  * Note, that $y_{pred}(\vec x) = y_{train, i}$ if $d(\vec x, \vec x_{train, i}) = 0$
+    * where $w_i(\vec x) = \frac{1}{d(\vec x, \vec x_{train, i})}$
+    * Note, that $y_{pred}(\vec x) = y_{train, i}$ if $d(\vec x, \vec x_{train, i}) = 0$
 
 ### Genearate some fake data
 
@@ -1701,23 +1715,29 @@ plt.tight_layout()
 
 * We have learned first ML algorithm - k-Nearest Neighbors
 * It has some pros:
-  * easy to understand and implement
-  * no time needed for training - may be used for initial analysis before one reaches for some *heavier* tool
-  * solves nonlinear problems 
-  * limited number of hyperparameters
-  * no parameters!
-  * *at the end of this lecture we will deal with tens of hyperparameters and thousands of parameters*
+
+    * easy to understand and implement
+    * no time needed for training - may be used for initial analysis before one reaches for some *heavier* tool
+    * solves nonlinear problems 
+    * limited number of hyperparameters
+    * no parameters!
+    * *at the end of this lecture we will deal with tens of hyperparameters and thousands of parameters*
+
 * Although cons make it hard to use in practice
-  * training data must be kept for the whole time (so called **lazy training**)
-    * imagine having GB of training samples and you want to make mobile app
-    * other algorithms allows to discard training samples once the model is trained (**eager learning**) - usually it means long training process but super fast classification (which is what we really want)
-  * distance-comparing is not suitable for all data - a picture of a cat on a blue background (e.g. sky) can be close to a ship on a sea (because background pixels vote too)
-    * e.g. for [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html) (60k pictures, 10 classes, more about that later) vanilla kNN get less than 40% accuracy
-    * still better than random guessing (10%), but convolutional neural networks get >95%
+
+    * training data must be kept for the whole time (so called **lazy training**)
+        * imagine having GB of training samples and you want to make mobile app
+        * other algorithms allows to discard training samples once the model is trained (**eager learning**) - usually it means long training process but super fast classification (which is what we really want)
+  
+    * distance-comparing is not suitable for all data - a picture of a cat on a blue background (e.g. sky) can be close to a ship on a sea (because background pixels vote too)
+
+        * e.g. for [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html) (60k pictures, 10 classes, more about that later) vanilla kNN get less than 40% accuracy
+        * still better than random guessing (10%), but convolutional neural networks get >95%
+
 * Still, we have learned from kNN a few important things:
-  * Data is important (both size and quality)
-  * Sometimes data requires preprocessing
-  * Wrong choice of hyperparameters may lead to under- or over-fitting
-    * Use validation samples to tune the model
-    * And **DO NOT** touch test samples until you are done!
-    
+
+    * Data is important (both size and quality)
+    * Sometimes data requires preprocessing
+    * Wrong choice of hyperparameters may lead to under- or over-fitting
+        * Use validation samples to tune the model
+        * And **DO NOT** touch test samples until you are done!    

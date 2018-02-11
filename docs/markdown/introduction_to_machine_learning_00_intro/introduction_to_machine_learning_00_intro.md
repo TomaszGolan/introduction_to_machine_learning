@@ -4,10 +4,11 @@
 ## Lecturer details
 
 * Tomasz Golan
-  * email: [tomasz.golan@uwr.edu.pl](mailto: tomasz.golan@uwr.edu.pl)
-  * room@ift: 438
-  * phone: +48 71 375-9405
-  * consultations: ?
+    
+    * email: [tomasz.golan@uwr.edu.pl](mailto: tomasz.golan@uwr.edu.pl)
+    * room@ift: 438
+    * phone: +48 71 375-9405
+    * consultations: ?
 
 ## Lecture details
 
@@ -246,32 +247,32 @@ Action |                           |
 
 * Image recognition
 
-  * [Google Maps](https://maps.google.com) - finding licence plates and faces; extracting street names and building numbers
-  * [Facebook](https://facebook.com) - recognising similar faces
+    * [Google Maps](https://maps.google.com) - finding licence plates and faces; extracting street names and building numbers
+    * [Facebook](https://facebook.com) - recognising similar faces
   
 * Speech recognition
 
-  * [Microsoft](https://microsoft.com) - Cortana
-  * [Apple](https://apple.com) - Siri
+    * [Microsoft](https://microsoft.com) - Cortana
+    * [Apple](https://apple.com) - Siri
   
 * Natural Language Processing
 
-  * [Google Translate](https://translate.google.pl/) - machine translation
-  * [Next Game of Thrones Book](https://blog.udacity.com/2017/08/neural-network-game-of-thrones.html) - language modeling
+    * [Google Translate](https://translate.google.pl/) - machine translation
+    * [Next Game of Thrones Book](https://blog.udacity.com/2017/08/neural-network-game-of-thrones.html) - language modeling
   
 * Misc
 
-  * [PayPal](https://paypal.com/) - fraud alert
-  
-  * [Netflix](https://netflix.com), [Amazon](https://amazon.com) - recommendation system
+    * [PayPal](https://paypal.com/) - fraud alert
 
-  * [Art](https://www.boredpanda.com/computer-deep-learning-algorithm-painting-masters/)
-  
-  ![art](https://static.boredpanda.com/blog/wp-content/uploads/2015/08/computer-deep-learning-algorithm-painting-masters-12.jpg)
-  
-  * [AlphaGo](https://deepmind.com/research/alphago/)
-  
-  ![alphago](https://media-exp2.licdn.com/mpr/mpr/AAEAAQAAAAAAAA2sAAAAJGQyYzBkMmViLTczMmItNDdhZC1hYmNkLWU5OTljZjhjNmY5Mg.png)
+    * [Netflix](https://netflix.com), [Amazon](https://amazon.com) - recommendation system
+
+    * [Art](https://www.boredpanda.com/computer-deep-learning-algorithm-painting-masters/)
+
+    ![art](https://static.boredpanda.com/blog/wp-content/uploads/2015/08/computer-deep-learning-algorithm-painting-masters-12.jpg)
+
+    * [AlphaGo](https://deepmind.com/research/alphago/)
+
+    ![alphago](https://media-exp2.licdn.com/mpr/mpr/AAEAAQAAAAAAAA2sAAAAJGQyYzBkMmViLTczMmItNDdhZC1hYmNkLWU5OTljZjhjNmY5Mg.png)
   
   
 
