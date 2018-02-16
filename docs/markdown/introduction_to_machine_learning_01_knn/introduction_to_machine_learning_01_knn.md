@@ -4,7 +4,9 @@
 ## *useful (but not interesting) functions*
 
 * Here, I just define some functions used for making demo plots during the introduction.
+
 * Feel free to look at them later (especially if you are not familiar with `numpy` and `matplotlib`).
+
 * But now let's skip them.
 
 
@@ -117,6 +119,7 @@ def plot_an_example(style=None, color=None, label="Class"):
 ## Our first ML problem
 
 * Two classes: red circles and blue squares (**training** samples)
+
 * Where does the green triangle (**test** sample) belong?
 
 
@@ -138,16 +141,21 @@ plot.plot(*X1.T, 'ro', *X2.T, 'bs', *new_point.T, 'g^');
 ## Nearest Neighbor
 
 * The nearest neigbor classifier *compares* a test sample with all training samples to predict a label (class).
+
 * How to compare two samples?
 
     * L1 distance: $d(\vec x_1, \vec x_2) = \sum\limits_i |x_1^i - x_2^i|$
+
     * L2 distance: $d(\vec x_1, \vec x_2) = \sqrt{\sum\limits_i (x_1^i - x_2^i)^2}$
     
-      * note: in practice square root is ignored (becasue is monotonic function)
-      * L2 is less forgiving than L1 - prefers many small disagreements than one big one
+        * note: in practice square root is ignored (becasue is monotonic function)
+        
+        * L2 is less forgiving than L1 - prefers many small disagreements than one big one
   
     * cosine distance (cosine similarity): $d(\vec x_1, \vec x_2) = \frac{x_1 \cdot x_1}{||\vec x_1|| \cdot ||\vec x_2||}$
+
     * Chebyshev distance: $d(\vec x_1, \vec x_2) = max_i(|x_1^i - x_2^i|)$
+    
     * and many others
     
 * The closest one determines the test sample label
@@ -155,7 +163,9 @@ plot.plot(*X1.T, 'ro', *X2.T, 'bs', *new_point.T, 'g^');
 ### Implementation
 
 * The implementation of nearest neighbor algorithm is pretty straightforward
+
 * There is no real training process here - we just need to remember all training feature vectors and corresponding labels
+
 * To predict a label for new sample we just need to find the label of the closest point from training samples
 
 
@@ -207,6 +217,7 @@ class NearestNeighbor():
 ### The magic of numpy
 
 * NumPy is irreplacable tool for numerical operations on arrays
+
 * Using numpy we could easily find all distances using one line
 
 ```
@@ -304,8 +315,11 @@ np.sum(np.abs(a - b), axis=1)
 ### Analysis
 
 * Before we start using `NearestNeighbor` let's create a simple mini-framework to apply NN and visualize results easily
+
 * We want to initilize `NearestNeighbor` with some feature vectors (and automatically assign labels for each class)
+
 * We want our test samples to be a grid of uniformly distributed points
+
 * We want methods to process test data and to make a plots with final results
 
 
@@ -422,6 +436,7 @@ l2.plot()
     * [1, 2] x [1, 2]
     
 * We expect 4 squares created by test samples grid
+
 * How does it depend on the size of training samples?
 
 
@@ -475,7 +490,9 @@ for n in (5, 10, 50, 100):
 
 
 * Data are rarely perfect and you may expect some training samples to have unsual features
+
 * Features shared by a majority of training samples are more important than a single occurrence
+
 * Let's add some noise to our data and see how Nearest Neighbor deal with it
 
 
@@ -544,9 +561,11 @@ print(accuracy)
 
 
 * Please note, that this is a toy model - in the case of real problems there is no way to determine true labels (otherwise there is no point to use ML methods...)
+
 * To measure accuracy of the model one usually splits data into:
 
     * training samples (usually about 80%)
+
     * test samples (usually about 20%)
   
 * After the model is trained on training samples, the accuracy is measured on test samples
@@ -560,7 +579,9 @@ print(accuracy)
 ### Implementation
 
 * We can base the implementation on `NearestNeighbor`, but
+
 * The *constructor* has an extra parameter *k*
+
 * and we need to override `predict` method
 
 
@@ -663,8 +684,11 @@ knn.plot()
 ### k-Test
 
 * For *k = 1* kNN is likely to overfit the problem
+
 * Although, it does not mean that higher *k* is better!
+
 * Now, let's see how different values of *k* affects the result
+
 * Later, we will learn how to find optimal value of *k* for given problem
 
 
@@ -697,13 +721,17 @@ for k in (1, 5, 10, 50):
 ## Hyperparameters
 
 * ML model may have some hyperparameters - parameters set before training
+
 * Please note, ML algorithm may have also parameters which are set during training
+
 * In the case of kNN there are two hyperparameters:
 
     * number of nearest neihgbors (*k*)
+
     * the definition of distance
 
 * The choice of hyperparameters values highly depends on a problem
+
 * The wrong choice of hyperparameters may lead to underfitting or overfitting
 
 ### Over-, under-fitting example
@@ -723,6 +751,7 @@ plot.plot(*data.T, 'o');
 
 
 * Let's try to fit this data to a polynomial
+
 * The degree is a hyperparamter (which defines number of coefficients)
 
 
@@ -759,7 +788,9 @@ for n in (1, 2, 10):
 
 
 * For *n = 1* we clearly underfit the data as we do not have enough parameters to describe the complexity of the problem
+
 * For *n = 2* we have appropriate capacity (as we actually generated data form $x^2$ function)
+
 * For *n = 10* we overfit the data - training samples are described perfectly, but we clearly lost the generalization ability
 
 <font color=red size=5>Message 04: right choice of hyperparameters is crucial!</font>
@@ -769,12 +800,15 @@ for n in (1, 2, 10):
 * One splits data into training and test samples
 
     * training samples are used to optimize model parameters
+    
     * test samples are used to measure accuracy
+    
     * there is no rule of thumb on how to split dataset
 
 * If a model has some hyperparameters the part of training set is used for valitation samples:
 
     * training samples - tuning model parameters
+    
     * validation samples - tuning hyperparameters
   
 ```
@@ -794,16 +828,23 @@ for n in (1, 2, 10):
 ## Iris dataset
 
 * The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other 2; the latter are NOT linearly separable from each other. [src](https://archive.ics.uci.edu/ml/datasets/iris)
+
 * Attribute Information:
 
     * sepal length in cm
+    
     * sepal width in cm
+    
     * petal length in cm
+    
     * petal width in cm
+    
     * class: 
 
         * Iris Setosa
+        
         * Iris Versicolour
+        
         * Iris Virginica
 
 ### Load dataset
@@ -911,7 +952,9 @@ iris_data.head()  # print a few first entries
 ### Visualize dataset
 
 * `pandas` offers plotting through `matplotlib` integration
+
 * Let's visualize Iris data
+
 * Let's keep the code short - sorry if it is hard to follow
 
 
@@ -960,6 +1003,7 @@ plt.tight_layout()
 ### Prepare feature vectors and labels
 
 * First step is to prepare data - we need feature vectors with corresponding labels
+
 * In this case every sample's feature vector is 4D (sepal length, sepal width, petal length, petal width) and is labeled with one of three classes (Iris Setosa, Iris Versicolour, Iris Virginica)
 
 
@@ -1077,8 +1121,11 @@ print(Y[:5])
 ### Prepare test dataset
 
 * Let's use 80% for training and 20% for testing
+
 * We, obviously, can not just take last 20% of samples for testing because our data is ordered
+
 * But we can randomly select 20% of samples
+
 * Easy to do by hand, but let's start to use some ML frameworks
 
 
@@ -1101,6 +1148,7 @@ print(X_train.shape[0], X_valid.shape[0], X_test.shape[0])
 ### kNN from scikit-learn
 
 * `scikit-learn` has already implemented k-Nearest Neighbor algorithm (which is more flexible than the one implemented during this lecture)
+
 * Let's see how *complicated* is using one of ML frameworks with Python
 
 
@@ -1187,8 +1235,11 @@ print(accuracy_score(Y_valid, Y_pred))
 ### k-dependence of the accuracy
 
 * Let's use validation set to determine the best hyperparameter *k*
+
 * We will run kNN for various values of *k* and measure accuracy
+
 * This will allow us to find the optimal value of *k*
+
 * And check the accuracy on the test dataset
 
 
@@ -1249,7 +1300,9 @@ print(accuracy_score(Y_test, Y_pred))
 
 
 * The accuracy plot is not smooth
+
 * It is common if one does not have enough validation samples
+
 * But there is another way to measure accuracy dependence on hyperparameters
 
 ### Cross-validation
@@ -1326,11 +1379,13 @@ k_accuracy_plot().plot(range(1, max_k), avg_scores);
 
 
 * In theory, cross-validation is the way to go (especially if a dataset is small)
+
 * In practice, people tend to use a single validation split as it is not that computational expensive as cross-validation
 
 ### Data normalization
 
 * Sometimes there is a need to preprocess data before training
+
 * Let's imagine Iris sepal data is in cm but petal data in mm
 
 
@@ -1396,6 +1451,7 @@ print("Accuracy:\n\tboth in cm: {}\n\tpetal in mm: {}".format(cm, mm))
 
 
 * It is kind of obvious here - petal information will barely contribute to the distance
+
 * However, it is not always obvious if some features are not suppressed by the way data is normalized
 
 <font color=red size=5>Message 05: be aware of data normalization!</font>
@@ -1403,14 +1459,19 @@ print("Accuracy:\n\tboth in cm: {}\n\tpetal in mm: {}".format(cm, mm))
 ## MNIST
 
 * [THE MNIST DATABASE of handwritten digits](http://yann.lecun.com/exdb/mnist/)
+
 * *The MNIST database of handwritten digits, available from this page, has a training set of 60,000 examples, and a test set of 10,000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.*
+
 * *It is a good database for people who want to try learning techniques and pattern recognition methods on real-world data while spending minimal efforts on preprocessing and formatting.*
 
 ---
 
 * To make it simpler (and faster) let's use digits toy dataset which comes with `scikit-learn` [src](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html)
+
 * Each datapoint is a 8x8 image of a digit.
+
 * About 180 samples per class (digit)
+
 * Total number of samples 1797
 
 ### Load digits
@@ -1428,7 +1489,9 @@ print(digits.data.shape)
 
 
 * `digits.images` is a `numpy` array with 1797 `numpy` arrays 8x8 (feature vectors) representing digits
+
 * `digits.target` is a `numpy` array with 1797 integer numbers (class labels)
+
 * the code below allow us to visualize a random digits from the dataset
 
 
@@ -1472,6 +1535,7 @@ plt.text(10, 1, "This is: {}".format(digits.target[random_index]),
 ### Prepare data
 
 * We need to split dataset to training and test samples
+
 * However, images are in 8x8 format and we have to flatten them first
 
 
@@ -1493,7 +1557,9 @@ print(digits.images.reshape((1797, -1)).shape)
 
 
 * Please note -1 in new shape
+
 * `numpy.reshape` allows us to pass one *unknown* dimension which can be determined automatically
+
 * Thus, the above is equivalent to
 
 
@@ -1561,8 +1627,11 @@ plt.plot(range(1, max_k), avg_scores);
 
 
 * We used nearly the same procedure as for the Iris dataset
+
 * Note, that digits toy dataset prefer different *k*
+
 * This is the idea of ML - the same algorithm can solve different problems if train on different data
+
 * Nowadays, in ML field **data is more important than algorithms** (we have good algorithms already) 
 
 ### Final test
@@ -1615,16 +1684,19 @@ for i, (true, predict) in enumerate(zip(label_test, prediction)):
 * It is also possible to do regression using k-Nearest Neighbors
 
     * find *k* nearest neighbors from training samples
+    
     * calculate the predicted value using inverse distance weighting method
   
     $$y_{pred}(\vec x) = \frac{\sum\limits_i w_i(\vec x) y_{train, i}}{\sum\limits_i w_i(\vec x_i)}$$
   
     * where $w_i(\vec x) = \frac{1}{d(\vec x, \vec x_{train, i})}$
+    
     * Note, that $y_{pred}(\vec x) = y_{train, i}$ if $d(\vec x, \vec x_{train, i}) = 0$
 
 ### Genearate some fake data
 
 * Let's grab some random points from the sine function
+
 * And add some noise to make it more like real data
 
 
@@ -1650,7 +1722,9 @@ plt.plot(x_train, y_train, 'ro');
 ### Make a fit
 
 * In general, one should do cross-validation to determine the best *k*
+
 * We will skip this part during the lecture (feel free to check this at home though!)
+
 * Let's just check how kNN fit works for a few different values of *k*
 
 ### Comment on `numpy.newaxis`
@@ -1714,30 +1788,43 @@ plt.tight_layout()
 ## Summary
 
 * We have learned first ML algorithm - k-Nearest Neighbors
+
 * It has some pros:
 
     * easy to understand and implement
+
     * no time needed for training - may be used for initial analysis before one reaches for some *heavier* tool
+    
     * solves nonlinear problems 
+    
     * limited number of hyperparameters
+    
     * no parameters!
+    
     * *at the end of this lecture we will deal with tens of hyperparameters and thousands of parameters*
 
 * Although cons make it hard to use in practice
 
     * training data must be kept for the whole time (so called **lazy training**)
+    
         * imagine having GB of training samples and you want to make mobile app
+        
         * other algorithms allows to discard training samples once the model is trained (**eager learning**) - usually it means long training process but super fast classification (which is what we really want)
   
     * distance-comparing is not suitable for all data - a picture of a cat on a blue background (e.g. sky) can be close to a ship on a sea (because background pixels vote too)
 
         * e.g. for [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html) (60k pictures, 10 classes, more about that later) vanilla kNN get less than 40% accuracy
-        * still better than random guessing (10%), but convolutional neural networks get >95%
+
+      * still better than random guessing (10%), but convolutional neural networks get >95%
 
 * Still, we have learned from kNN a few important things:
 
     * Data is important (both size and quality)
+    
     * Sometimes data requires preprocessing
+    
     * Wrong choice of hyperparameters may lead to under- or over-fitting
+        
         * Use validation samples to tune the model
+        
         * And **DO NOT** touch test samples until you are done!    

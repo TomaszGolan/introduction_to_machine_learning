@@ -6,8 +6,11 @@
 * Tomasz Golan
     
     * email: [tomasz.golan@uwr.edu.pl](mailto: tomasz.golan@uwr.edu.pl)
+    
     * room@ift: 438
+    
     * phone: +48 71 375-9405
+    
     * consultations: ?
 
 ## Lecture details
@@ -15,34 +18,47 @@
 ### Plan
 
 * Introduction
+
 * k-Nearest Neighbors
+
 * Decision Tree
+
 * Support Vector Machine
+
 * Multilayer Perceptron
+
 * Deep Learning
 
 ### Literature
 
 * “Deep Learning” by Ian Goodfellow, Yoshua Bengio, Aaron Courville
+
 * “Pattern Recognition and Machine Learning” by Christopher Bishop
 
 ### Recommended prerequisite knowledge
 
 * Linear algebra
+
 * Calculus
+
 * Python
 
 ### Exam
 
 * In the form of the presentation
+
 * Individual or group project
+
 * At least one machine learning algorithm must be used
+
 * With the model description included
 
 ## *useful (but not interesting) functions*
 
 * Here, I just define some functions used for making demo plots during the introduction.
+
 * Feel free to look at them later (especially if you are not familiar with `numpy` and `matplotlib`).
+
 * But now let's skip them.
 
 
@@ -181,9 +197,13 @@ def plot_an_example(style=None, color=None, label="Class"):
 ### Supervised learning
 
 * Problems: classification, regression
+
 * Let $\vec x_i \in X$ be feature vectors
+
 * Let $y_i \in Y$ be class labels
+
 * Let $h: X \rightarrow Y$ be hypothesis
+
 * Find $h(\vec x)$ given $N$ training examples $\left\{(\vec x_1, y_1), ..., (\vec x_N, y_N)\right\}$
 
 
@@ -198,7 +218,9 @@ plot_an_example(style='bs', color='b');
 ### Unsupervised learning
 
 * In opposite to supervised learning data is not labeled
+
 * Problems: clustering, association
+
 * For example: k-means clustering, self-organizing maps
 
 
@@ -213,6 +235,7 @@ plot_an_example(label="Cluster");
 ### Example: Supervised vs Unsupervised
 
 * Having $N$ photos of different animals
+
 * Supervised task (requires labeled data)
 
 > Train an algorithm to recognise given species on a photo.
@@ -248,16 +271,19 @@ Action |                           |
 * Image recognition
 
     * [Google Maps](https://maps.google.com) - finding licence plates and faces; extracting street names and building numbers
+
     * [Facebook](https://facebook.com) - recognising similar faces
   
 * Speech recognition
 
     * [Microsoft](https://microsoft.com) - Cortana
+    
     * [Apple](https://apple.com) - Siri
   
 * Natural Language Processing
 
     * [Google Translate](https://translate.google.pl/) - machine translation
+    
     * [Next Game of Thrones Book](https://blog.udacity.com/2017/08/neural-network-game-of-thrones.html) - language modeling
   
 * Misc
@@ -273,8 +299,6 @@ Action |                           |
     * [AlphaGo](https://deepmind.com/research/alphago/)
 
     ![alphago](https://media-exp2.licdn.com/mpr/mpr/AAEAAQAAAAAAAA2sAAAAJGQyYzBkMmViLTczMmItNDdhZC1hYmNkLWU5OTljZjhjNmY5Mg.png)
-  
-  
 
 ### ML Fails
 
@@ -297,8 +321,13 @@ Action |                           |
 ### ML Frameworks
 
 * [Tensorflow](https://www.tensorflow.org/) by Google - Python (and somewhat in C/C++)
+
 * [Caffe](http://caffe.berkeleyvision.org/) by Berkeley Vision and Learning Center - C/C++, Python, MATLAB, Command line interface
+
 * [Torch](http://torch.ch/) by many - Lua and C/C++
+
 * [Theano](http://deeplearning.net/software/theano/) by University of Montreal - Python (development stopped in 2017)
+
 * [scikit-learn](http://scikit-learn.org) by many - Python
+
 * and many others
