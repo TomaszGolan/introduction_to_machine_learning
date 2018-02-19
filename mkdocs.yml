@@ -3,6 +3,7 @@ pages:
     - Home: index.md
     - Introduction: markdown/introduction_to_machine_learning_00_intro/introduction_to_machine_learning_00_intro.md
     - k-Nearest Neighbors: markdown/introduction_to_machine_learning_01_knn/introduction_to_machine_learning_01_knn.md
+    - Decision Trees: markdown/introduction_to_machine_learning_02_dt/introduction_to_machine_learning_02_dt.md
 
 # Project information
 site_name: Introduction to Machine Learning
