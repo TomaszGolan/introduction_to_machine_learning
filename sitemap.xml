@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>https://tomaszgolan.github.io/introduction_to_machine_learning//</loc>
+     <lastmod>2018-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://tomaszgolan.github.io/introduction_to_machine_learning//markdown/introduction_to_machine_learning_00_intro/introduction_to_machine_learning_00_intro/</loc>
+     <lastmod>2018-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://tomaszgolan.github.io/introduction_to_machine_learning//markdown/introduction_to_machine_learning_01_knn/introduction_to_machine_learning_01_knn/</loc>
+     <lastmod>2018-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://tomaszgolan.github.io/introduction_to_machine_learning//markdown/introduction_to_machine_learning_02_dt/introduction_to_machine_learning_02_dt/</loc>
+     <lastmod>2018-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+</urlset>
