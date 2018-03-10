@@ -1378,9 +1378,9 @@ k_accuracy_plot().plot(range(1, max_k), avg_scores);
 ![png](output_106_0.png)
 
 
-* In theory, cross-validation is the way to go (especially if a dataset is small)
+* In theory, k-fold cross-validation is the way to go (especially if a dataset is small)
 
-* In practice, people tend to use a single validation split as it is not that computational expensive as cross-validation
+* In practice, people tend to use a single validation split as it is not that computational expensive
 
 ### Data normalization
 

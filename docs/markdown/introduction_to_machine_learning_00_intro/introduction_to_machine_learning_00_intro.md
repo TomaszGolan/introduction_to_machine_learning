@@ -11,7 +11,11 @@
     
     * phone: +48 71 375-9405
     
-    * consultations: ?
+    * consultations:
+    
+        * Monday 11-12
+        
+        * Thursday 16-17 
 
 ## Lecture details
 
