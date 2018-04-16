@@ -43,3 +43,25 @@ This website was created for your convenience. Feel free to use Jupyter notebook
 
     * [Summary](markdown/introduction_to_machine_learning_02_dt/introduction_to_machine_learning_02_dt/#summary_2)
 
+* Support vector machine ([Colaboratory](https://colab.research.google.com/drive/1IA_RgU64I8OZ-KKNV42T4ldkEOHFZ8d_) or [GitHub](https://github.com/TomaszGolan/introduction_to_machine_learning/blob/master/docs/notebooks/introduction_to_machine_learning_03_svm.ipynb))
+
+    * [Linear SVM](markdown/introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm/#linear-svm)
+    
+    * [Lagrange multipliers](markdown/introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm/#lagrange-multipliers)
+    
+    * [Optimal margin](markdown/introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm/#optimal-margin)
+    
+    * [Non-linear SVM](markdown/introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm/#non-linear-svm)
+    
+    * [Soft margin](markdown/introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm/#soft-margin)
+    
+    * [SMO algorithm](markdown/introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm/#smo-algorithm)
+    
+    * [Examples](markdown/introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm/#examples)
+    
+    * [Multiclass classification](markdown/introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm/#multiclass-classification)
+    
+    * [SVM regression](markdown/introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm/#svm-regression)
+    
+    * [Summary](markdown/introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm/#summary)
+
