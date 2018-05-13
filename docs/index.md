@@ -65,3 +65,25 @@ This website was created for your convenience. Feel free to use Jupyter notebook
     
     * [Summary](markdown/introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm/#summary)
 
+* Neural networks ([Colaboratory](https://colab.research.google.com/drive/1DdGmph_WzVpCRJ2c6jVRDcznJ--8xduh) or [GitHub](https://github.com/TomaszGolan/introduction_to_machine_learning/blob/master/docs/notebooks/introduction_to_machine_learning_04_nn.ipynb))
+
+    * [Linear regression](markdown/introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/#linear-regression)
+
+    * [Logistic regression](markdown/introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/#logistic-regression)
+
+    * [Multinominal logistic regression](markdown/introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/#multinominal-logistic-regression)
+
+    * [Neural networks](markdown/introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/#neural-networks)
+
+    * [AND, OR, XOR](markdown/introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/#and-or-vs-xor)
+
+    * [Simple regression with NN](markdown/introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/#simple-regression-with-nn)
+
+    * [MNIST with softmax](markdown/introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/#mnist)
+
+    * [Gradient descent variations](markdown/introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/#gradient-descent-variations)
+
+    * [Regularization](markdown/introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/#regularization)
+
+    * [Summary](markdown/introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/#summary)
+
