@@ -1,0 +1,1695 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="University of Wroclaw, Department of Physics and Astronomy">
+      
+      
+        <link rel="canonical" href="https://tomaszgolan.github.io/introduction_to_machine_learning/markdown/introduction_to_machine_learning_05_dl/introduction_to_machine_learning_05_dl/">
+      
+      
+        <meta name="author" content="Tomasz Golan">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.3">
+    
+    
+      
+        <title>Deep Learning - Introduction to Machine Learning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.bcabdff3.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    <script src="../../../js/require.min.js"></script>
+
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    
+      <body data-md-color-primary="blue-grey" data-md-color-accent="blue">
+    
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://tomaszgolan.github.io/introduction_to_machine_learning/" title="Introduction to Machine Learning" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Introduction to Machine Learning
+              </span>
+              <span class="md-header-nav__topic">
+                Deep Learning
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/TomaszGolan/introduction_to_machine_learning/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      IML @ GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Introduction to Machine Learning
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/TomaszGolan/introduction_to_machine_learning/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      IML @ GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction_to_machine_learning_00_intro/introduction_to_machine_learning_00_intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction_to_machine_learning_01_knn/introduction_to_machine_learning_01_knn/" title="k-Nearest Neighbors" class="md-nav__link">
+      k-Nearest Neighbors
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction_to_machine_learning_02_dt/introduction_to_machine_learning_02_dt/" title="Decision Trees" class="md-nav__link">
+      Decision Trees
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm/" title="Support Vector Machine" class="md-nav__link">
+      Support Vector Machine
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/" title="Neural Networks" class="md-nav__link">
+      Neural Networks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Deep Learning
+      </label>
+    
+    <a href="./" title="Deep Learning" class="md-nav__link md-nav__link--active">
+      Deep Learning
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#convolutional-neural-networks" title="Convolutional neural networks" class="md-nav__link">
+    Convolutional neural networks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convolutional-layer" title="Convolutional layer" class="md-nav__link">
+    Convolutional layer
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#padding" title="Padding" class="md-nav__link">
+    Padding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stride" title="Stride" class="md-nav__link">
+    Stride
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pooling" title="Pooling" class="md-nav__link">
+    Pooling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cnn-structure" title="CNN structure" class="md-nav__link">
+    CNN structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backpropagation" title="Backpropagation" class="md-nav__link">
+    Backpropagation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dropout" title="Dropout" class="md-nav__link">
+    Dropout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-mnist" title="Deep MNIST" class="md-nav__link">
+    Deep MNIST
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-normalization" title="Batch normalization" class="md-nav__link">
+    Batch normalization
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bn-layer" title="BN layer" class="md-nav__link">
+    BN layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-augmentation" title="Data augmentation" class="md-nav__link">
+    Data augmentation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flipping" title="Flipping" class="md-nav__link">
+    Flipping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotation" title="Rotation" class="md-nav__link">
+    Rotation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#translation" title="Translation" class="md-nav__link">
+    Translation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling" title="Scaling" class="md-nav__link">
+    Scaling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noise" title="Noise" class="md-nav__link">
+    Noise
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#convolutional-neural-networks" title="Convolutional neural networks" class="md-nav__link">
+    Convolutional neural networks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convolutional-layer" title="Convolutional layer" class="md-nav__link">
+    Convolutional layer
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#padding" title="Padding" class="md-nav__link">
+    Padding
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stride" title="Stride" class="md-nav__link">
+    Stride
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pooling" title="Pooling" class="md-nav__link">
+    Pooling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" title="Example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cnn-structure" title="CNN structure" class="md-nav__link">
+    CNN structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backpropagation" title="Backpropagation" class="md-nav__link">
+    Backpropagation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dropout" title="Dropout" class="md-nav__link">
+    Dropout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-mnist" title="Deep MNIST" class="md-nav__link">
+    Deep MNIST
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-normalization" title="Batch normalization" class="md-nav__link">
+    Batch normalization
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bn-layer" title="BN layer" class="md-nav__link">
+    BN layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-augmentation" title="Data augmentation" class="md-nav__link">
+    Data augmentation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flipping" title="Flipping" class="md-nav__link">
+    Flipping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotation" title="Rotation" class="md-nav__link">
+    Rotation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#translation" title="Translation" class="md-nav__link">
+    Translation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling" title="Scaling" class="md-nav__link">
+    Scaling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noise" title="Noise" class="md-nav__link">
+    Noise
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary_1" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/TomaszGolan/introduction_to_machine_learning/edit/master/docs/markdown/introduction_to_machine_learning_05_dl/introduction_to_machine_learning_05_dl.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="deep-learning">Deep learning<a class="headerlink" href="#deep-learning" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>Deep-learning methods are representation-learning methods with multiple levels of representation, obtained by composing simple but non-linear modules that each transform the representation at one level (starting with the raw input) into a representation at a higher, slightly more abstract level.</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>The key aspect of deep learning is that these layers of features are not designed by human engineers: they are learned from data using a general-purpose learning procedure</p>
+</blockquote>
+<hr />
+<blockquote>
+<p><em>Deep learning</em>, Y. LeCun, Y. Bengio, G Hinton, Nature 521 (7553), 436</p>
+</blockquote>
+<ul>
+<li>
+<p>There are many deep learning (DL) methods these days, including:</p>
+<ul>
+<li>
+<p>convolutional neural networks (CNN) - deep feed-forward neural networks (discussed today)</p>
+</li>
+<li>
+<p>recurrent neural networks (RNN) - connections between nodes can go backward (used e.g. for speech recognition)</p>
+</li>
+<li>
+<p>generative adversarial networks (GAN) - system of two neural networks competing with each other (one generates fake data and the other compare them with real data)</p>
+</li>
+<li>
+<p>and many others...</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1"># our standard imports: matplotlib and numpy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c1"># just to overwrite default colab style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-talk&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="convolutional-neural-networks">Convolutional neural networks<a class="headerlink" href="#convolutional-neural-networks" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>CNN is the type of feed-forward neural networks (neurons are connected only "forward")</p>
+</li>
+<li>
+<p>There are several types of layers typically used to construct CNN</p>
+<ul>
+<li>
+<p>convolutional</p>
+</li>
+<li>
+<p>pooling</p>
+</li>
+<li>
+<p>fully connected</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="convolutional-layer">Convolutional layer<a class="headerlink" href="#convolutional-layer" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Convolution operation performs dot product between filters and local regions of an input</li>
+</ul>
+<div class="codehilite"><pre><span></span>         INPUT       CONVOLUTION    OUTPUT
+
+      | 0 1 0 1 1 |
+      | 1 1 0 1 0 |   | 1 0 1 |    | ? ? ? |
+      | 1 0 1 0 1 | x | 0 1 0 | -&gt; | ? ? ? |
+      | 1 1 0 1 0 |   | 1 0 1 |    | ? ? ? |
+      | 0 0 1 1 0 |
+
+STEP 1
+
+| [0 1 0] 1 1 |
+| [1 1 0] 1 0 |   | 1 0 1 |    | 1*0 0*1 1*0 |   | 0 0 0 |        | 3 - - |
+| [1 0 1] 0 1 | x | 0 1 0 | -&gt; | 0*1 1*1 0*0 | = | 0 1 0 | = 3 -&gt; | - - - |
+|  1 1 0  1 0 |   | 1 0 1 |    | 1*1 0*0 1*1 |   | 1 0 1 |        | - - - |
+|  0 0 1  1 0 |
+
+STEP 2
+
+| 0 [1 0 1] 1 |
+| 1 [1 0 1] 0 |   | 1 0 1 |    | 1*1 0*0 1*1 |   | 1 0 1 |        | 3 2 - |
+| 1 [0 1 0] 1 | x | 0 1 0 | -&gt; | 0*1 1*0 0*1 | = | 0 0 0 | = 2 -&gt; | - - - |
+| 1  1 0 1  0 |   | 1 0 1 |    | 1*0 0*1 1*0 |   | 0 0 0 |        | - - - |
+| 0  0 1 1  0 |
+
+...
+
+STEP 9
+
+| 0 1  0 1 1  |
+| 1 1  0 1 0  |   | 1 0 1 |    | 1*1 0*0 1*1 |   | 1 0 1 |        | 3 2 4 |
+| 1 0 [1 0 1] | x | 0 1 0 | -&gt; | 0*0 1*1 0*0 | = | 0 1 0 | = 2 -&gt; | 2 5 0 |
+| 1 1 [0 1 0] |   | 1 0 1 |    | 1*1 0*1 1*0 |   | 1 0 0 |        | 4 1 4 |
+| 0 0 [1 1 0] |
+</pre></div>
+
+
+<ul>
+<li>Please note, that the output size (<span><span class="MathJax_Preview">W_{out}</span><script type="math/tex">W_{out}</script></span> x <span><span class="MathJax_Preview">H_{out}</span><script type="math/tex">H_{out}</script></span>) is determined by the input size (<span><span class="MathJax_Preview">W_{in}</span><script type="math/tex">W_{in}</script></span> x <span><span class="MathJax_Preview">H_{in}</span><script type="math/tex">H_{in}</script></span>) and the kernel size (<span><span class="MathJax_Preview">W_{f}</span><script type="math/tex">W_{f}</script></span> x <span><span class="MathJax_Preview">H_{f}</span><script type="math/tex">H_{f}</script></span>):</li>
+</ul>
+<p align="center"><br>$\begin{eqnarray}
+W_{out} & = & W_{in} - W_{f} + 1 \\
+H_{out} & = & H_{in} - H_{f} + 1
+\end{eqnarray}$</p>
+
+<p><br></p>
+<ul>
+<li>Please note, that input is normalized to <span><span class="MathJax_Preview">[0, 1]</span><script type="math/tex">[0, 1]</script></span>, but the output is not!</li>
+</ul>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">convolve2d</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/220px-Albert_Einstein_Head.jpg&quot;</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">as_grey</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># define first filter</span>
+<span class="n">filter01</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                     <span class="p">[</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># define first filter</span>
+<span class="n">filter02</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                     <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                     <span class="p">[</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="c1"># apply filters</span>
+<span class="n">out01</span> <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">filter01</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;valid&quot;</span><span class="p">)</span>
+<span class="n">out02</span> <span class="o">=</span> <span class="n">convolve2d</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">filter02</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;same&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">out01</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">out01</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">out02</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">out02</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="png" src="../output_11_0.png" /></p>
+<ul>
+<li>
+<p>The first filter found horizontal edges</p>
+</li>
+<li>
+<p>The second one found vertical edges, and also kept the original size of the input image</p>
+</li>
+</ul>
+<h4 id="padding">Padding<a class="headerlink" href="#padding" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Padding (zero padding) - adding zeros around an image</li>
+</ul>
+<div class="codehilite"><pre><span></span>                 | 0 0 0 0 0 0 0 |
+| 0 1 0 1 1 |    | 0 0 1 0 1 1 0 |
+| 1 1 0 1 0 |    | 0 1 1 0 1 0 0 |
+| 1 0 1 0 1 | -&gt; | 0 1 0 1 0 1 0 |
+| 1 1 0 1 0 |    | 0 1 1 0 1 0 0 |
+| 0 0 1 1 0 |    | 0 0 0 1 1 0 0 |
+                 | 0 0 0 0 0 0 0 |
+</pre></div>
+
+
+<ul>
+<li>The output size (<span><span class="MathJax_Preview">W_{out}</span><script type="math/tex">W_{out}</script></span> x <span><span class="MathJax_Preview">H_{out}</span><script type="math/tex">H_{out}</script></span>) is determined by the input size (<span><span class="MathJax_Preview">W_{in}</span><script type="math/tex">W_{in}</script></span> x <span><span class="MathJax_Preview">H_{in}</span><script type="math/tex">H_{in}</script></span>), the kernel size (<span><span class="MathJax_Preview">W_{f}</span><script type="math/tex">W_{f}</script></span> x <span><span class="MathJax_Preview">H_{f}</span><script type="math/tex">H_{f}</script></span>), and the padding size (<span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>)</li>
+</ul>
+<p align="center"><br>$\begin{eqnarray}
+W_{out} & = & W_{in} - W_{f} + 2P+ 1 \\
+H_{out} & = & H_{in} - H_{f} + 2P + 1
+\end{eqnarray}$</p>
+
+<p><br></p>
+<h4 id="stride">Stride<a class="headerlink" href="#stride" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Stride controls the movement of the filter</li>
+</ul>
+<div class="codehilite"><pre><span></span>Stride = 1
+
+| [0 1 0] 1 1 |    | 0 [1 0 1] 1 |
+| [1 1 0] 1 0 |    | 1 [1 0 1] 0 |
+| [1 0 1] 0 1 | -&gt; | 1 [0 1 0] 1 | -&gt; ...
+|  1 1 0  1 0 |    | 1  1 0 1  0 |
+|  0 0 1  1 0 |    | 0  0 1 1  0 |
+
+Stride = 2
+
+| [0 1 0] 1 1 |    | 0 1 [0 1 1] |
+| [1 1 0] 1 0 |    | 1 1 [0 1 0] |
+| [1 0 1] 0 1 | -&gt; | 1 0 [1 0 1] | -&gt; ...
+|  1 1 0  1 0 |    | 1 1  0 1 0  |
+|  0 0 1  1 0 |    | 0 0  1 1 0  |
+</pre></div>
+
+
+<ul>
+<li>The output size (<span><span class="MathJax_Preview">W_{out}</span><script type="math/tex">W_{out}</script></span> x <span><span class="MathJax_Preview">H_{out}</span><script type="math/tex">H_{out}</script></span>) is determined by the input size (<span><span class="MathJax_Preview">W_{in}</span><script type="math/tex">W_{in}</script></span> x <span><span class="MathJax_Preview">H_{in}</span><script type="math/tex">H_{in}</script></span>), the kernel size (<span><span class="MathJax_Preview">W_{f}</span><script type="math/tex">W_{f}</script></span> x <span><span class="MathJax_Preview">H_{f}</span><script type="math/tex">H_{f}</script></span>),  the padding size (<span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>), and the stride size (<span><span class="MathJax_Preview">W_{s}</span><script type="math/tex">W_{s}</script></span> x <span><span class="MathJax_Preview">H_{s}</span><script type="math/tex">H_{s}</script></span>)</li>
+</ul>
+<p align="center"><br>$\begin{eqnarray}
+W_{out} & = & \frac{W_{in} - W_{f} + 2P}{W_{s}}+ 1 \\
+H_{out} & = & \frac{H_{in} - H_{f} + 2P}{H_{s}} + 1
+\end{eqnarray}$</p>
+
+<p><br></p>
+<h4 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Convolutional layer consist of <span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> filters, so the hyperparameters are:</p>
+<ul>
+<li>
+<p>the number of filters</p>
+</li>
+<li>
+<p>the size of the filters</p>
+</li>
+<li>
+<p>padding</p>
+</li>
+<li>
+<p>stride</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="pooling">Pooling<a class="headerlink" href="#pooling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Pooling reduces the size of the input by taking <code>max</code> or <code>avg</code> of given part of the data</p>
+</li>
+<li>
+<p>Usually, 2x2 max pooling with stride 2 is used (output size = input size / 2)</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span>Max pooling 2x2, stride = 2
+
+| [1 2] 3 4 |    
+| [5 6] 7 8 |    | 6 - |
+|  0 9  1 2 | -&gt; | - - |
+|  3 4  5 6 |
+
+| 1 2 [3 4] |    
+| 5 6 [7 8] |    | 6 8 |
+| 0 9  1 2  | -&gt; | - - |
+| 3 4  5 6  |
+
+|  1 2  3 4 |    
+|  5 6  7 8 |    | 6 8 |
+| [0 9] 1 2 | -&gt; | 9 - |
+| [3 4] 5 6 |
+
+| 1 2  3 4  |    
+| 5 6  7 8  |    | 6 8 |
+| 0 9 [1 2] | -&gt; | 9 6 |
+| 3 4 [5 6] |
+</pre></div>
+
+
+<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.measure</span> <span class="kn">import</span> <span class="n">block_reduce</span>
+
+<span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span><span class="p">]</span>
+
+<span class="c1"># perform 5 poolings</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+  <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block_reduce</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">))</span>
+
+<span class="c1"># plot them all</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">231</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="png" src="../output_27_0.png" /></p>
+<h3 id="cnn-structure">CNN structure<a class="headerlink" href="#cnn-structure" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Typical structure of convolutional neural network (src: <a href="http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/">wildml.com</a>)</li>
+</ul>
+<p><img alt="" src="http://tomaszgolan.github.io/reveal_talks/img/ml/cnn_example.png" /></p>
+<ul>
+<li>But it may go deeper:</li>
+</ul>
+<p><img alt="" src="http://tomaszgolan.github.io/reveal_talks/img/ml/googlenet.png" /></p>
+<ul>
+<li>The first reference from the paper:</li>
+</ul>
+<blockquote>
+<p>[1] Know your meme: We need to go deeper.</p>
+</blockquote>
+<p><img alt="" src="http://tomaszgolan.github.io/reveal_talks/img/ml/need_deep.jpg" /></p>
+<h3 id="backpropagation">Backpropagation<a class="headerlink" href="#backpropagation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Filter weights are updated using (as for fully connected layers) backpropagation algorithm</p>
+</li>
+<li>
+<p>Consider input 3x3, filter 2x2, stride 1, no padding</p>
+</li>
+<li>
+<p>The forward pass looks like this</p>
+</li>
+</ul>
+<p align="center"><br>$
+\left[\begin{array}{ccc}
+x_{11} & x_{12} & x_{13} \\
+x_{21} & x_{22} & x_{23} \\
+x_{31} & x_{32} & x_{33}
+\end{array}\right]\odot
+\left[\begin{array}{cc}
+w_{11} & w_{12} \\
+w_{21} & w_{22}
+\end{array}\right] =
+\left[\begin{array}{cc}
+h_{11} & h_{12} \\
+h_{21} & h_{22}
+\end{array}\right]
+$</p>
+
+<p><br></p>
+<p align="center"><br>$
+\begin{eqnarray}
+h_{11} & = & w_{11}x_{11} + w_{12}x_{12} + w_{21}x_{21} + w_{22}x_{22} \\
+h_{12} & = & w_{11}x_{12} + w_{12}x_{13} + w_{21}x_{22} + w_{22}x_{23} \\
+h_{21} & = & w_{11}x_{21} + w_{12}x_{22} + w_{21}x_{31} + w_{22}x_{32} \\
+h_{22} & = & w_{11}x_{22} + w_{12}x_{23} + w_{21}x_{32} + w_{22}x_{33}
+\end{eqnarray}
+$</p>
+
+<p><br></p>
+<ul>
+<li>And the backward pass (<span><span class="MathJax_Preview">\partial w_{ij} \equiv \frac{\partial L}{\partial w_{ij}}</span><script type="math/tex">\partial w_{ij} \equiv \frac{\partial L}{\partial w_{ij}}</script></span> and <span><span class="MathJax_Preview">\partial h_{ij} \equiv \frac{\partial L}{\partial h_{ij}}</span><script type="math/tex">\partial h_{ij} \equiv \frac{\partial L}{\partial h_{ij}}</script></span> )</li>
+</ul>
+<p align="center"><br>$
+\begin{eqnarray}
+\partial w_{11} & = & \partial h_{11}x_{11} + \partial h_{12}x_{12} + \partial h_{21}x_{21} + \partial h_{22}x_{22} \\
+\partial w_{12} & = & \partial h_{11}x_{12} + \partial h_{12}x_{13} + \partial h_{21}x_{22} + \partial h_{22}x_{23} \\
+\partial w_{21} & = & \partial h_{11}x_{21} + \partial h_{12}x_{22} + \partial h_{21}x_{31} + \partial h_{22}x_{32} \\
+\partial w_{22} & = & \partial h_{11}x_{22} + \partial h_{12}x_{23} + \partial h_{21}x_{32} + \partial h_{22}x_{33}
+\end{eqnarray}
+$</p>
+
+<p><br></p>
+<h3 id="dropout">Dropout<a class="headerlink" href="#dropout" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Very often convolution layers (with or without pooling) are followed by fully connected layers</p>
+</li>
+<li>
+<p>Note, that most weights live in fully connected layers, but convolutions are computationally more expensive</p>
+</li>
+<li>
+<p><strong>Dropout</strong> is a common technique of regularization </p>
+</li>
+<li>
+<p>Note, that it should be used together with other methods like L1 of or L2 regularizations</p>
+</li>
+<li>
+<p>Dropout deactivates random set of neurons during training phase (usually about 50%)</p>
+</li>
+<li>
+<p>This improves generalization - force different neurons to learn the same <em>concept</em></p>
+</li>
+<li>
+<p>Usually, dropout is applied to fully connected layers</p>
+</li>
+</ul>
+<h2 id="deep-mnist">Deep MNIST<a class="headerlink" href="#deep-mnist" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Last week we got about 92% accuracy on MNIST dataset</p>
+</li>
+<li>
+<p>Today we are going to do better with CNN</p>
+</li>
+<li>
+<p>First, lets load the data</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.examples.tutorials.mnist</span> <span class="kn">import</span> <span class="n">input_data</span>
+
+<span class="c1"># to avoid warnings printed in the notebook</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">set_verbosity</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+
+<span class="c1"># one hot -&gt; label 0-9 -&gt; 0...01, 0...10, ...</span>
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">input_data</span><span class="o">.</span><span class="n">read_data_sets</span><span class="p">(</span><span class="s2">&quot;/tmp/&quot;</span><span class="p">,</span> <span class="n">one_hot</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>Extracting /tmp/train-images-idx3-ubyte.gz
+Extracting /tmp/train-labels-idx1-ubyte.gz
+Extracting /tmp/t10k-images-idx3-ubyte.gz
+Extracting /tmp/t10k-labels-idx1-ubyte.gz
+</pre></div>
+
+
+<ul>
+<li>Create placeholders for tensors to fed</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">784</span><span class="p">])</span>  <span class="c1"># img -&gt; 28x28 -&gt; 784</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>   <span class="c1"># 10 classes</span>
+</pre></div>
+
+
+<ul>
+<li>Build the network</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1"># reshape to 28x28 image with 1 color channel</span>
+<span class="n">x_image</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1">##### The first convolution (conv1) with 32 filters 5x5 #####</span>
+
+<span class="c1"># init weights randomly from normal distribution with bounds</span>
+<span class="n">W_conv1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+
+<span class="c1"># init bias with 0.1</span>
+<span class="n">b_conv1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">32</span><span class="p">]))</span>
+
+<span class="c1"># create convolution</span>
+<span class="c1"># input tensor has 4 dimensions: [batch, height, width, channels]</span>
+<span class="c1"># strides defines how to move in each dimension</span>
+<span class="c1"># padding = &quot;SAME&quot; (zero padding) or &quot;VALID&quot; (no padding)</span>
+<span class="n">conv1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">x_image</span><span class="p">,</span> <span class="n">W_conv1</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+
+<span class="c1"># ReLU activation funtion</span>
+<span class="n">h_conv1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv1</span> <span class="o">+</span> <span class="n">b_conv1</span><span class="p">)</span>
+
+<span class="c1"># pooling layer 2x2 with stride 2</span>
+<span class="n">h_pool1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">max_pool</span><span class="p">(</span><span class="n">h_conv1</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                         <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+
+<span class="c1">##### The second convolutional layer - maps 32 feature maps to 64 #####</span>
+
+<span class="n">W_conv2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="n">b_conv2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">64</span><span class="p">]))</span>
+
+<span class="c1"># last pooling layer is an input for this layer</span>
+<span class="n">conv2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">h_pool1</span><span class="p">,</span> <span class="n">W_conv2</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+<span class="n">h_conv2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">conv2</span> <span class="o">+</span> <span class="n">b_conv2</span><span class="p">)</span>
+<span class="n">h_pool2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">max_pool</span><span class="p">(</span><span class="n">h_conv2</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                         <span class="n">strides</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;SAME&#39;</span><span class="p">)</span>
+
+<span class="c1"># Convolution is done with zero padding - preserves image size</span>
+<span class="c1"># Each pooling downsamples by 2x</span>
+<span class="c1"># 28x28 -&gt; 14x14x32 -&gt; 7x7x64</span>
+
+<span class="c1">###### Fully connected layer maps above to 1024 features #####</span>
+
+<span class="n">W_fc1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1024</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="n">b_fc1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">]))</span>
+
+<span class="c1"># we need to reshape last layer</span>
+<span class="n">h_pool2_flat</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">h_pool2</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">64</span><span class="p">])</span>
+
+<span class="c1"># matmul - matrix multiplication</span>
+<span class="n">h_fc1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">h_pool2_flat</span><span class="p">,</span> <span class="n">W_fc1</span><span class="p">)</span> <span class="o">+</span> <span class="n">b_fc1</span><span class="p">)</span>
+
+<span class="c1">##### Dropout layer #####</span>
+
+<span class="c1"># keep_prob controls no. of deactivated neurons</span>
+<span class="n">keep_prob</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">h_fc1_drop</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">h_fc1</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">)</span>
+
+<span class="c1">##### Output layer #####</span>
+
+<span class="c1"># Map the 1024 features to 10 classes, one for each digit</span>
+<span class="n">W_fc2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">truncated_normal</span><span class="p">([</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="n">b_fc2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">]))</span>
+
+<span class="n">out</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">h_fc1_drop</span><span class="p">,</span> <span class="n">W_fc2</span><span class="p">)</span> <span class="o">+</span> <span class="n">b_fc2</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>Before training we need to define:</p>
+<ul>
+<li>
+<p>loss function</p>
+</li>
+<li>
+<p>learning algorithm</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1"># loss function</span>
+<span class="n">cross_entropy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span>
+      <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">logits</span><span class="o">=</span><span class="n">out</span><span class="p">))</span>
+
+<span class="c1"># training step - using Adam SGD with initial learning rate 1e-4</span>
+<span class="n">train_step</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">AdamOptimizer</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cross_entropy</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>For convenience we define a method to measure accuracy</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1"># argmax returns the index of the heighest index in a tensor</span>
+<span class="c1"># equal returns True / False if prediction is equal/not equal to true label</span>
+<span class="c1"># cast would convert True/False to 1/0, so we can calculate the average</span>
+<span class="n">correct_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">correct_prediction</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+</pre></div>
+
+
+<ul>
+<li>Make sure we are running on GPU</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">device_name</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">gpu_device_name</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">device_name</span> <span class="o">!=</span> <span class="s1">&#39;/device:GPU:0&#39;</span><span class="p">:</span>
+  <span class="k">raise</span> <span class="ne">SystemError</span><span class="p">(</span><span class="s1">&#39;GPU device not found&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Found GPU at: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device_name</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>Found GPU at: /device:GPU:0
+</pre></div>
+
+
+<ul>
+<li>Finally we can train the network on MNIST dataset</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="c1"># to use GPU through Colaboratory</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ConfigProto</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">gpu_options</span><span class="o">.</span><span class="n">allow_growth</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="n">nof_iterations</span> <span class="o">=</span> <span class="mi">20000</span> <span class="c1"># number of training steps</span>
+<span class="n">test_every</span> <span class="o">=</span> <span class="mi">1000</span>      <span class="c1"># calculate accuracy every test_every step</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>        <span class="c1"># traning batch size</span>
+<span class="n">acc_batch</span> <span class="o">=</span> <span class="mi">2048</span>       <span class="c1"># the size of a subset used to measure accuracy</span>
+
+<span class="n">train_accuracy</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">valid_accuracy</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+  <span class="c1"># initialize weights and biases</span>
+  <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">())</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nof_iterations</span><span class="p">):</span>
+    <span class="c1"># take mini batch from MNIST dataset</span>
+    <span class="n">batch</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
+
+    <span class="c1"># every test_every iterations save current accuracy scores</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">test_every</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="c1"># for testing we do not want dropout neurons - keep_prob = 1</span>
+      <span class="c1"># to save time we calculate accuracy on a subset of data</span>
+
+      <span class="n">train_batch</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="n">acc_batch</span><span class="p">)</span>
+      <span class="n">train_accuracy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span>
+          <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">train_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">train_batch</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}))</span>
+
+      <span class="n">test_batch</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="n">acc_batch</span><span class="p">)</span>
+      <span class="n">valid_accuracy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span>
+          <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">test_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">test_batch</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}))</span>
+
+    <span class="c1"># run training step with 50% neurons deactivated</span>
+    <span class="n">train_step</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">})</span>
+
+  <span class="c1"># calculate the accuracy on the whole testing dataset</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">&#39;test accuracy </span><span class="si">%g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span>
+      <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>test accuracy 0.9915
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">iterations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nof_iterations</span><span class="p">,</span> <span class="n">nof_iterations</span> <span class="o">//</span> <span class="n">test_every</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Iteration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">iterations</span><span class="p">,</span> <span class="n">train_accuracy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">iterations</span><span class="p">,</span> <span class="n">valid_accuracy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Valid accuracy&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+
+
+<p><img alt="png" src="../output_50_0.png" /></p>
+<h2 id="batch-normalization">Batch normalization<a class="headerlink" href="#batch-normalization" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>As discussed before, usually data preprocessing includes data normalization (or feature scaling)</p>
+</li>
+<li>
+<p>Let <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> be a feature vector:</p>
+<ul>
+<li>
+<p>rescaling: <span><span class="MathJax_Preview">\hat x = \frac{x - \min(x)}{\max(x) - \min(x)}</span><script type="math/tex">\hat x = \frac{x - \min(x)}{\max(x) - \min(x)}</script></span></p>
+</li>
+<li>
+<p>standarization: <span><span class="MathJax_Preview">\hat x = \frac{x - \text{mean}(x)}{\sigma}</span><script type="math/tex">\hat x = \frac{x - \text{mean}(x)}{\sigma}</script></span>, where <span><span class="MathJax_Preview">\sigma</span><script type="math/tex">\sigma</script></span> - standard deviation</p>
+</li>
+<li>
+<p>...</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Normalization (usually) helps to train the network</p>
+</li>
+<li>
+<p>It does not mean, that you would always normalize your data. Consider developing an algorithm to recognize cars on a picture and having training photos with cars in daylight and nightlight:</p>
+<ul>
+<li>
+<p>Scenario 1: the goal is to just recognize a car - data can be normalized, so the network does not have to learn the difference between day and night</p>
+</li>
+<li>
+<p>Scenario 2: the additional goal is distinguish photos of cars at night and during the day - data should not be normalized as you lose valuable information</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Similarly, one can normalize the output of hidden layer to increase stability of a network</p>
+</li>
+</ul>
+<h3 id="bn-layer">BN layer<a class="headerlink" href="#bn-layer" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>The idea is to make activations unit gaussian by scaling the input <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span></p>
+</li>
+<li>
+<p>Let <span><span class="MathJax_Preview">X = \{x_1, \cdots, x_N\}</span><script type="math/tex">X = \{x_1, \cdots, x_N\}</script></span> be a batch of <span><span class="MathJax_Preview">D</span><script type="math/tex">D</script></span>-dimensional vectors</p>
+</li>
+<li>
+<p>We define <em>mini-batch mean</em> and <em>mini-batch variance</em>:</p>
+</li>
+</ul>
+<p align="center"><br>$
+\begin{eqnarray}
+\mu & = & \frac{1}{N}\sum\limits_{i=1}^{N}x_i \\
+\sigma^2 & = & \frac{1}{N}\sum\limits_{i=1}^{N}\left(x_i - \mu\right)^2
+\end{eqnarray}
+$</p>
+
+<p><br></p>
+<ul>
+<li>
+<p>Note, that <span><span class="MathJax_Preview">\mu, \sigma^2 \in\mathcal{R}^D</span><script type="math/tex">\mu, \sigma^2 \in\mathcal{R}^D</script></span></p>
+</li>
+<li>
+<p>And normalized input: <p align="center"><br><span><span class="MathJax_Preview">\hat x_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \varepsilon}}</span><script type="math/tex">\hat x_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \varepsilon}}</script></span></p><br></p>
+</li>
+<li>
+<p>Where <span><span class="MathJax_Preview">\varepsilon &lt;&lt; 1</span><script type="math/tex">\varepsilon << 1</script></span> is just to ensure denominator not equal zero</p>
+</li>
+<li>
+<p>Please note, that in the original paper the mean and the variance are calculated:</p>
+<ul>
+<li>
+<p>for batch (training)</p>
+</li>
+<li>
+<p>for the whole training dataset (inference)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>BN layer is usually put after fully connected layer (or convolution), e.g.</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span>   |----|    |----|    |------|    |----|    |----|
+-&gt; | FC | -&gt; | BN | -&gt; | tanh | -&gt; | FC | -&gt; | BN | -&gt; ... 
+   |----|    |----|    |------|    |----|    |----|
+</pre></div>
+
+
+<ul>
+<li>
+<p>The problem is - do we really a unit gaussian input for <code>tanh</code>?</p>
+</li>
+<li>
+<p>The idea - let the network to squash the range if it wants to: <p align="center"><br><span><span class="MathJax_Preview">y_i = \gamma \hat x_i + \beta</span><script type="math/tex">y_i = \gamma \hat x_i + \beta</script></span></p><br></p>
+</li>
+<li>
+<p>Where <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span>, <span><span class="MathJax_Preview">\beta</span><script type="math/tex">\beta</script></span> are trainable parameters</p>
+</li>
+<li>
+<p>Note, that the network can learn:</p>
+</li>
+</ul>
+<p align="center"><br>$
+\begin{eqnarray}
+\gamma & = & \sqrt{\sigma^2} \\
+\beta & = & \mu
+\end{eqnarray}
+$</p>
+
+<p><br></p>
+<ul>
+<li>
+<p>to recover the original activation!</p>
+</li>
+<li>
+<p>Thus, we say "I normalized input for you, but feel free to undo this if you want to"</p>
+</li>
+<li>
+<p>In order to use BN in backpropgation scheme one needs to calculate:</p>
+<ul>
+<li>
+<p><span><span class="MathJax_Preview">\frac{\partial L}{\partial \gamma}</span><script type="math/tex">\frac{\partial L}{\partial \gamma}</script></span> to perform SGD on <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span></p>
+</li>
+<li>
+<p><span><span class="MathJax_Preview">\frac{\partial L}{\partial \beta}</span><script type="math/tex">\frac{\partial L}{\partial \beta}</script></span> to perform SGD on <span><span class="MathJax_Preview">\beta</span><script type="math/tex">\beta</script></span></p>
+</li>
+<li>
+<p><span><span class="MathJax_Preview">\frac{\partial L}{\partial x_i}</span><script type="math/tex">\frac{\partial L}{\partial x_i}</script></span> to pass on the gradient signal to lower layers</p>
+</li>
+</ul>
+</li>
+<li>
+<p>which it not a problem since <span><span class="MathJax_Preview">\hat x_i</span><script type="math/tex">\hat x_i</script></span> is differentiable function</p>
+</li>
+</ul>
+<h2 id="data-augmentation">Data augmentation<a class="headerlink" href="#data-augmentation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Data augmentation is used to increase the number of training samples</p>
+</li>
+<li>
+<p>The common methods for image data augmenation are:</p>
+<ul>
+<li>
+<p>flipping</p>
+</li>
+<li>
+<p>rotation</p>
+</li>
+<li>
+<p>translation</p>
+</li>
+<li>
+<p>scaling</p>
+</li>
+<li>
+<p>adding noise</p>
+</li>
+<li>
+<p>...</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The goal is to make the network invariant to given tranformations</p>
+</li>
+<li>
+<p>E.g. if the goal is to find a car on a picture it does not matter how it is oriented, what is its position or color etc </p>
+</li>
+</ul>
+<h3 id="flipping">Flipping<a class="headerlink" href="#flipping" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="n">img_flip_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">img_flip_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">img_flip_xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">img_flip_y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;original&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;x-flip&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_flip_x</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;y-flip&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_flip_y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;xy-flip&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_flip_xy</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="png" src="../output_58_0.png" /></p>
+<h3 id="rotation">Rotation<a class="headerlink" href="#rotation" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.ndimage.interpolation</span> <span class="kn">import</span> <span class="n">rotate</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">angle</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">((</span><span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">)):</span>
+  <span class="n">img_rot</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="n">angle</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;angle = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_rot</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="png" src="../output_60_0.png" /></p>
+<ul>
+<li>
+<p>Note, that rotations may cause extra background (if not multiplicity of <span><span class="MathJax_Preview">90^0</span><script type="math/tex">90^0</script></span>)</p>
+</li>
+<li>
+<p>This may or may not be a problem</p>
+</li>
+<li>
+<p>Also, rotated images habe different dimensions than the original one, so one need to crop it</p>
+</li>
+</ul>
+<h3 id="translation">Translation<a class="headerlink" href="#translation" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.ndimage.interpolation</span> <span class="kn">import</span> <span class="n">shift</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(((</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">))):</span>
+  <span class="n">img_trans</span> <span class="o">=</span> <span class="n">shift</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">))</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;dx, dy = {}, {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">))</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_trans</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="png" src="../output_63_0.png" /></p>
+<h3 id="scaling">Scaling<a class="headerlink" href="#scaling" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.transform</span> <span class="kn">import</span> <span class="n">rescale</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">scale</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">((</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">)):</span>
+  <span class="n">img_scaled</span> <span class="o">=</span> <span class="n">rescale</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+  <span class="n">img_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">img_scaled</span><span class="p">,</span> <span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">img_scaled</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;constant&quot;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;scale = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">scale</span><span class="p">))</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_scaled</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>/usr/local/lib/python3.6/dist-packages/skimage/transform/_warps.py:84: UserWarning: The default mode, &#39;constant&#39;, will be changed to &#39;reflect&#39; in skimage 0.15.
+  warn(&quot;The default mode, &#39;constant&#39;, will be changed to &#39;reflect&#39; in &quot;
+</pre></div>
+
+
+<p><img alt="png" src="../output_65_1.png" /></p>
+<h3 id="noise">Noise<a class="headerlink" href="#noise" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="c1"># salt and pepper noise</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">prob</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">((</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">)):</span>
+  <span class="n">img_noised</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+  <span class="n">rnd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+  <span class="n">img_noised</span><span class="p">[</span><span class="n">rnd</span> <span class="o">&lt;</span> <span class="n">prob</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># pepper</span>
+  <span class="n">img_noised</span><span class="p">[</span><span class="n">rnd</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">prob</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># salt</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;prob = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prob</span><span class="p">))</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img_noised</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="png" src="../output_67_0.png" /></p>
+<h2 id="summary_1">Summary<a class="headerlink" href="#summary_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>As we do not have more time, we can not go deeper</p>
+</li>
+<li>
+<p>CNN are just an example of deep learning method</p>
+</li>
+<li>
+<p>However, very useful / successful in</p>
+<ul>
+<li>
+<p>image classification</p>
+</li>
+<li>
+<p>object detection (R-CNN, Fast R-CNN, Faster R-CNN, Yolo, ...)</p>
+</li>
+<li>
+<p>generating images (GAN, Cycle-GAN, ....)</p>
+</li>
+</ul>
+<p>...</p>
+</li>
+<li>
+<p>Deep learning field is growing fast these days and many interesting approaches appear every month</p>
+</li>
+<li>
+<p>The big advantage of DL is reducing feature engineering, but you need a lot of data and may end up with "hyperparameter engineering"</p>
+</li>
+<li>
+<p>The goal of these lectures was to give you the general idea about ML/DL methods</p>
+</li>
+<li>
+<p>and to understand this meme</p>
+</li>
+</ul>
+<p><img alt="math_vs_ai" src="https://pbs.twimg.com/media/DI2UpXWXYAA_eJg.jpg" /></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/" title="Neural Networks" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Neural Networks
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/TomaszGolan/introduction_to_machine_learning" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.6cdc17f0.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../../.."}})</script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
