@@ -6,6 +6,7 @@ pages:
     - Decision Trees: markdown/introduction_to_machine_learning_02_dt/introduction_to_machine_learning_02_dt.md
     - Support Vector Machine: markdown/introduction_to_machine_learning_03_svm/introduction_to_machine_learning_03_svm.md
     - Neural Networks: markdown/introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn.md
+    - Deep Learning: markdown/introduction_to_machine_learning_05_dl/introduction_to_machine_learning_05_dl.md
 
 # Project information
 site_name: Introduction to Machine Learning

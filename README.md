@@ -13,3 +13,5 @@ For your convenience [the website](https://tomaszgolan.github.io/introduction_to
 * Support vector machine: [Colaboratory](https://colab.research.google.com/drive/1IA_RgU64I8OZ-KKNV42T4ldkEOHFZ8d_) or [GitHub](https://github.com/TomaszGolan/introduction_to_machine_learning/blob/master/docs/notebooks/introduction_to_machine_learning_03_svm.ipynb)
 
 * Neural networks ([Colaboratory](https://colab.research.google.com/drive/1DdGmph_WzVpCRJ2c6jVRDcznJ--8xduh) or [GitHub](https://github.com/TomaszGolan/introduction_to_machine_learning/blob/master/docs/notebooks/introduction_to_machine_learning_04_nn.ipynb))
+
+* Deep learning ([Colaboratory](https://colab.research.google.com/drive/1pW-SvZ62L-WZRtRyZ-rFETt5L24V7XEz) or [GitHub](https://github.com/TomaszGolan/introduction_to_machine_learning/blob/master/docs/notebooks/introduction_to_machine_learning_05_dl.ipynb))

@@ -87,3 +87,16 @@ This website was created for your convenience. Feel free to use Jupyter notebook
 
     * [Summary](markdown/introduction_to_machine_learning_04_nn/introduction_to_machine_learning_04_nn/#summary)
 
+* Deep learning ([Colaboratory](https://colab.research.google.com/drive/1pW-SvZ62L-WZRtRyZ-rFETt5L24V7XEz) or [GitHub](https://github.com/TomaszGolan/introduction_to_machine_learning/blob/master/docs/notebooks/introduction_to_machine_learning_05_dl.ipynb))
+
+    * [Convolutional Neural Networks](markdown/introduction_to_machine_learning_05_dl/introduction_to_machine_learning_05_dl/#convolutional-neural-networks)
+    
+    * [Deep MNIST](markdown/introduction_to_machine_learning_05_dl/introduction_to_machine_learning_05_dl/#deep-mnist)
+    
+    * [Batch normalization](markdown/introduction_to_machine_learning_05_dl/introduction_to_machine_learning_05_dl/#batch-normalization)
+    
+    * [Data augmentation](markdown/introduction_to_machine_learning_05_dl/introduction_to_machine_learning_05_dl/#data-augmentation)
+    
+    * [Summary](markdown/introduction_to_machine_learning_05_dl/introduction_to_machine_learning_05_dl/#summary_1)
+    
+
